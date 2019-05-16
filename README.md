@@ -7,7 +7,7 @@
 Pour l’utiliser, télécharger dans l’Arduino le programme sous le répertoire *embedded*. Par la suite, établir une connection sériel à 155200 baud. Pour commander une tension à l’une des sorties, transmettre la chaîne de caractères suivante:
 
 
-<ch>,<valeur><retour>
+\<ch\>,\<valeur\>\<retour\>
 
 
 Où
