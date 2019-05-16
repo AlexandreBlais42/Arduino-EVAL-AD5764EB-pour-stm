@@ -67,6 +67,8 @@ void loop() {
           ch -= 'a';
         } else if (ch >= 'A' && ch <= 'D') {
           ch -= 'A';
+        } else if (ch >= '0' && ch <= '3') {
+          ch -= '0';
         }
         command.remove(0, command.indexOf(',') + 1);
         float V = command.toFloat();
