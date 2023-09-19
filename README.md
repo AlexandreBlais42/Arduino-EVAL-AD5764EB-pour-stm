@@ -1,4 +1,4 @@
-# Module Quad DAC monté autour du *AD5764*
+#Module Quad DAC monté autour du *AD5764*
 
 À utiliser avec la carte d’évaluation du DAC AD5764 monté dans le boîtier identifié au P/N de la carte, soit *EVAL-AD5764EB*. Cette carte est pilotée par un Arduino UNO. La résolution est de 0.3 mV.
 
@@ -11,15 +11,14 @@ Pour l’utiliser, télécharger dans l’Arduino le programme sous le répertoi
 
 
 Où
-ch: Le canal utilisé, soit a, b, c, d ou A, B, C, D ou 0, 1, 2, 3
-valuer: La tension en volt souhaitée
+ch: Le canal utilisé, soit A, B, C, D
+valeur: La valeur 16bit en hexadécimal majuscule souhaité. Exemple : 7FFF pour 10V
 retour: Une nouvelle ligne ou un retour de chariot
 
 
 Exemple:
 
-A,7.432\n
-
+A7B7B\n
 
 Où \n signifie une nouvelle ligne.
 
