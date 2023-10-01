@@ -70,13 +70,16 @@ void loop() {
         } else if (ch >= '0' && ch <= '3') {
           ch -= '0';
         }
-        command.remove(0, command.indexOf(',') + 1);
-        float V = command.toFloat();
+
+        command.remove(0, 1);
+        char valeur[4];
+        command.toCharArray(valeur, 5);
+        long valeurdecimale = strtol(valeur, NULL, 16);
 
         DEBUG("V: ");
         DEBUGLN(V);
-        
-        long bin = 65536.0 * (V + 10.0) / 20.0;
+
+        long bin = (valeurdecimale / 2) + 32768;
 
         DEBUG("bin: ");
         DEBUGLN(bin);
