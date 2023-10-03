@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arduino_Evaluation_AD5764EB_driver: Référence du fichier Arduino-EVAL-AD5764EB-Driver.cc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Arduino_Evaluation_AD5764EB_driver
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier Arduino-EVAL-AD5764EB-Driver.cc</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;SPI.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration et initisalisation du protocole SPI.  <br /></td></tr>
+<tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
+<tr class="memdesc:afe461d27b9c48d5921c00d521181f12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procède la fonction <a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#ae928ba3dbaad22d1de4597e16c11e5ec" title="Acquisition et vérification de la commande de contrôle selon le format A7B7B  Où ch: Le canal utilisé...">procedureSerialInput()</a>; de manière continue.  <br /></td></tr>
+<tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05b140b32cab16fd8e8096ad906d177a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#a05b140b32cab16fd8e8096ad906d177a">initialisationCNA</a> ()</td></tr>
+<tr class="memdesc:a05b140b32cab16fd8e8096ad906d177a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration du CNA AD5764EB.  <br /></td></tr>
+<tr class="separator:a05b140b32cab16fd8e8096ad906d177a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae928ba3dbaad22d1de4597e16c11e5ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#ae928ba3dbaad22d1de4597e16c11e5ec">procedureSerialInput</a> ()</td></tr>
+<tr class="memdesc:ae928ba3dbaad22d1de4597e16c11e5ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquisition et vérification de la commande de contrôle selon le format A7B7B<br  />
+ Où ch: Le canal utilisé, soit A, B, C, D valeur: La valeur 16bit en hexadécimal majuscule souhaité. Exemple : 7FFF pour 10V retour: Une nouvelle ligne ou un retour de chariot.  <br /></td></tr>
+<tr class="separator:ae928ba3dbaad22d1de4597e16c11e5ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e67e1a9e4d8f7a994dc15fd8efc1512"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#a9e67e1a9e4d8f7a994dc15fd8efc1512">procedureCommande</a> (const String &amp;command)</td></tr>
+<tr class="memdesc:a9e67e1a9e4d8f7a994dc15fd8efc1512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traitement de la chaine de caractère command.  <br /></td></tr>
+<tr class="separator:a9e67e1a9e4d8f7a994dc15fd8efc1512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646bb1e167af8d67929572b893d426d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#a646bb1e167af8d67929572b893d426d5">writeRegister</a> (uint8_t function, uint8_t addr, int16_t valeurReg)</td></tr>
+<tr class="memdesc:a646bb1e167af8d67929572b893d426d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Écriture des valeurs vers le CNA AD5764EB à l'aide du protocole SPI.  <br /></td></tr>
+<tr class="separator:a646bb1e167af8d67929572b893d426d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a09899c75098708854f40a36d33d44bea"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#a09899c75098708854f40a36d33d44bea">SYNC_PIN</a> = 10</td></tr>
+<tr class="separator:a09899c75098708854f40a36d33d44bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad569f9ededde76d4c7e54a543ab38dea"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#ad569f9ededde76d4c7e54a543ab38dea">LDAC_PIN</a> = 9</td></tr>
+<tr class="separator:ad569f9ededde76d4c7e54a543ab38dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b393c1b2c27de5c000275b89dfb97f2"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#a1b393c1b2c27de5c000275b89dfb97f2">CLR_PIN</a> = 8</td></tr>
+<tr class="separator:a1b393c1b2c27de5c000275b89dfb97f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd1e0372deef146deab0c0567f04adaa"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#afd1e0372deef146deab0c0567f04adaa">RSTIN</a> = 7</td></tr>
+<tr class="separator:afd1e0372deef146deab0c0567f04adaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa052c61a7257911ae68659fd3c83d6f0"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#aa052c61a7257911ae68659fd3c83d6f0">BIN_2COMP</a> = 6</td></tr>
+<tr class="separator:aa052c61a7257911ae68659fd3c83d6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab98cb2d4a51014b599bfa57f5d25cfa1"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#ab98cb2d4a51014b599bfa57f5d25cfa1">FUNCTION_REG</a> = 0</td></tr>
+<tr class="separator:ab98cb2d4a51014b599bfa57f5d25cfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d06665b33b53978aedd02ffb666368b"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#a9d06665b33b53978aedd02ffb666368b">DATA_REG</a> = 2</td></tr>
+<tr class="separator:a9d06665b33b53978aedd02ffb666368b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15f5331c99b4a7c633d51ad22a87a99"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#ab15f5331c99b4a7c633d51ad22a87a99">COARSE_GAIN_REG</a> = 3</td></tr>
+<tr class="separator:ab15f5331c99b4a7c633d51ad22a87a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89c5037f32d46637e106aad3a923e7ec"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#a89c5037f32d46637e106aad3a923e7ec">FINE_GAIN_REG</a> = 4</td></tr>
+<tr class="separator:a89c5037f32d46637e106aad3a923e7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac832672eb333d928d7c27c47cb1442e"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#aac832672eb333d928d7c27c47cb1442e">OFFSET_REG</a> = 5</td></tr>
+<tr class="separator:aac832672eb333d928d7c27c47cb1442e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ea0b1efc6619c7bc1dbc1a9b051e3f"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#af2ea0b1efc6619c7bc1dbc1a9b051e3f">ALL_DAC</a> = 4</td></tr>
+<tr class="separator:af2ea0b1efc6619c7bc1dbc1a9b051e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a05b140b32cab16fd8e8096ad906d177a" name="a05b140b32cab16fd8e8096ad906d177a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05b140b32cab16fd8e8096ad906d177a">&#9670;&#160;</a></span>initialisationCNA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initialisationCNA </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configuration du CNA AD5764EB. </p>
+
+</div>
+</div>
+<a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procède la fonction <a class="el" href="Arduino-EVAL-AD5764EB-Driver_8cc.html#ae928ba3dbaad22d1de4597e16c11e5ec" title="Acquisition et vérification de la commande de contrôle selon le format A7B7B  Où ch: Le canal utilisé...">procedureSerialInput()</a>; de manière continue. </p>
+
+</div>
+</div>
+<a id="a9e67e1a9e4d8f7a994dc15fd8efc1512" name="a9e67e1a9e4d8f7a994dc15fd8efc1512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e67e1a9e4d8f7a994dc15fd8efc1512">&#9670;&#160;</a></span>procedureCommande()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void procedureCommande </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Traitement de la chaine de caractère command. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">command</td><td>const String&amp; Pointeur sur la chaine de caractère command </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae928ba3dbaad22d1de4597e16c11e5ec" name="ae928ba3dbaad22d1de4597e16c11e5ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae928ba3dbaad22d1de4597e16c11e5ec">&#9670;&#160;</a></span>procedureSerialInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void procedureSerialInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acquisition et vérification de la commande de contrôle selon le format A7B7B<br  />
+ Où ch: Le canal utilisé, soit A, B, C, D valeur: La valeur 16bit en hexadécimal majuscule souhaité. Exemple : 7FFF pour 10V retour: Une nouvelle ligne ou un retour de chariot. </p>
+
+</div>
+</div>
+<a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc01d736fe50cf5b977f755b675f11d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configuration et initisalisation du protocole SPI. </p>
+
+</div>
+</div>
+<a id="a646bb1e167af8d67929572b893d426d5" name="a646bb1e167af8d67929572b893d426d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a646bb1e167af8d67929572b893d426d5">&#9670;&#160;</a></span>writeRegister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeRegister </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>valeurReg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Écriture des valeurs vers le CNA AD5764EB à l'aide du protocole SPI. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">function</td><td>uint8_t </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">addr</td><td>uint8_t </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">valeurReg</td><td>int16_t </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="af2ea0b1efc6619c7bc1dbc1a9b051e3f" name="af2ea0b1efc6619c7bc1dbc1a9b051e3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ea0b1efc6619c7bc1dbc1a9b051e3f">&#9670;&#160;</a></span>ALL_DAC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t ALL_DAC = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa052c61a7257911ae68659fd3c83d6f0" name="aa052c61a7257911ae68659fd3c83d6f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa052c61a7257911ae68659fd3c83d6f0">&#9670;&#160;</a></span>BIN_2COMP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int BIN_2COMP = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b393c1b2c27de5c000275b89dfb97f2" name="a1b393c1b2c27de5c000275b89dfb97f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b393c1b2c27de5c000275b89dfb97f2">&#9670;&#160;</a></span>CLR_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int CLR_PIN = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab15f5331c99b4a7c633d51ad22a87a99" name="ab15f5331c99b4a7c633d51ad22a87a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15f5331c99b4a7c633d51ad22a87a99">&#9670;&#160;</a></span>COARSE_GAIN_REG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t COARSE_GAIN_REG = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d06665b33b53978aedd02ffb666368b" name="a9d06665b33b53978aedd02ffb666368b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d06665b33b53978aedd02ffb666368b">&#9670;&#160;</a></span>DATA_REG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t DATA_REG = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89c5037f32d46637e106aad3a923e7ec" name="a89c5037f32d46637e106aad3a923e7ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89c5037f32d46637e106aad3a923e7ec">&#9670;&#160;</a></span>FINE_GAIN_REG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t FINE_GAIN_REG = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab98cb2d4a51014b599bfa57f5d25cfa1" name="ab98cb2d4a51014b599bfa57f5d25cfa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab98cb2d4a51014b599bfa57f5d25cfa1">&#9670;&#160;</a></span>FUNCTION_REG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t FUNCTION_REG = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad569f9ededde76d4c7e54a543ab38dea" name="ad569f9ededde76d4c7e54a543ab38dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad569f9ededde76d4c7e54a543ab38dea">&#9670;&#160;</a></span>LDAC_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int LDAC_PIN = 9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac832672eb333d928d7c27c47cb1442e" name="aac832672eb333d928d7c27c47cb1442e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac832672eb333d928d7c27c47cb1442e">&#9670;&#160;</a></span>OFFSET_REG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t OFFSET_REG = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd1e0372deef146deab0c0567f04adaa" name="afd1e0372deef146deab0c0567f04adaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd1e0372deef146deab0c0567f04adaa">&#9670;&#160;</a></span>RSTIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int RSTIN = 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a09899c75098708854f40a36d33d44bea" name="a09899c75098708854f40a36d33d44bea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09899c75098708854f40a36d33d44bea">&#9670;&#160;</a></span>SYNC_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int SYNC_PIN = 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

@@ -1,0 +1,192 @@
+\hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc}{}\doxysection{Référence du fichier Arduino-\/\+EVAL-\/\+AD5764\+EB-\/\+Driver.cc}
+\label{Arduino-EVAL-AD5764EB-Driver_8cc}\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Configuration et initisalisation du protocole SPI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Procède la fonction \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_ae928ba3dbaad22d1de4597e16c11e5ec}{procedure\+Serial\+Input()}}; de manière continue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_a05b140b32cab16fd8e8096ad906d177a}{initialisation\+CNA}} ()
+\begin{DoxyCompactList}\small\item\em Configuration du CNA AD5764\+EB. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_ae928ba3dbaad22d1de4597e16c11e5ec}{procedure\+Serial\+Input}} ()
+\begin{DoxyCompactList}\small\item\em Acquisition et vérification de la commande de contrôle selon le format A7\+B7B~\newline
+ Où ch\+: Le canal utilisé, soit A, B, C, D valeur\+: La valeur 16bit en hexadécimal majuscule souhaité. Exemple \+: 7FFF pour 10V retour\+: Une nouvelle ligne ou un retour de chariot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_a9e67e1a9e4d8f7a994dc15fd8efc1512}{procedure\+Commande}} (const String \&command)
+\begin{DoxyCompactList}\small\item\em Traitement de la chaine de caractère command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_a646bb1e167af8d67929572b893d426d5}{write\+Register}} (uint8\+\_\+t function, uint8\+\_\+t addr, int16\+\_\+t valeur\+Reg)
+\begin{DoxyCompactList}\small\item\em Écriture des valeurs vers le CNA AD5764\+EB à l\textquotesingle{}aide du protocole SPI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_a09899c75098708854f40a36d33d44bea}{SYNC\+\_\+\+PIN}} = 10
+\item 
+const int \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_ad569f9ededde76d4c7e54a543ab38dea}{LDAC\+\_\+\+PIN}} = 9
+\item 
+const int \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_a1b393c1b2c27de5c000275b89dfb97f2}{CLR\+\_\+\+PIN}} = 8
+\item 
+const int \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_afd1e0372deef146deab0c0567f04adaa}{RSTIN}} = 7
+\item 
+const int \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_aa052c61a7257911ae68659fd3c83d6f0}{BIN\+\_\+2\+COMP}} = 6
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_ab98cb2d4a51014b599bfa57f5d25cfa1}{FUNCTION\+\_\+\+REG}} = 0
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_a9d06665b33b53978aedd02ffb666368b}{DATA\+\_\+\+REG}} = 2
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_ab15f5331c99b4a7c633d51ad22a87a99}{COARSE\+\_\+\+GAIN\+\_\+\+REG}} = 3
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_a89c5037f32d46637e106aad3a923e7ec}{FINE\+\_\+\+GAIN\+\_\+\+REG}} = 4
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_aac832672eb333d928d7c27c47cb1442e}{OFFSET\+\_\+\+REG}} = 5
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_af2ea0b1efc6619c7bc1dbc1a9b051e3f}{ALL\+\_\+\+DAC}} = 4
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_a05b140b32cab16fd8e8096ad906d177a}\label{Arduino-EVAL-AD5764EB-Driver_8cc_a05b140b32cab16fd8e8096ad906d177a}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!initialisationCNA@{initialisationCNA}}
+\index{initialisationCNA@{initialisationCNA}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{initialisationCNA()}{initialisationCNA()}}
+{\footnotesize\ttfamily void initialisation\+CNA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Configuration du CNA AD5764\+EB. 
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_afe461d27b9c48d5921c00d521181f12f}\label{Arduino-EVAL-AD5764EB-Driver_8cc_afe461d27b9c48d5921c00d521181f12f}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!loop@{loop}}
+\index{loop@{loop}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Procède la fonction \mbox{\hyperlink{Arduino-EVAL-AD5764EB-Driver_8cc_ae928ba3dbaad22d1de4597e16c11e5ec}{procedure\+Serial\+Input()}}; de manière continue. 
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_a9e67e1a9e4d8f7a994dc15fd8efc1512}\label{Arduino-EVAL-AD5764EB-Driver_8cc_a9e67e1a9e4d8f7a994dc15fd8efc1512}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!procedureCommande@{procedureCommande}}
+\index{procedureCommande@{procedureCommande}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{procedureCommande()}{procedureCommande()}}
+{\footnotesize\ttfamily void procedure\+Commande (\begin{DoxyParamCaption}\item[{const String \&}]{command }\end{DoxyParamCaption})}
+
+
+
+Traitement de la chaine de caractère command. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em command} & const String\& Pointeur sur la chaine de caractère command \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_ae928ba3dbaad22d1de4597e16c11e5ec}\label{Arduino-EVAL-AD5764EB-Driver_8cc_ae928ba3dbaad22d1de4597e16c11e5ec}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!procedureSerialInput@{procedureSerialInput}}
+\index{procedureSerialInput@{procedureSerialInput}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{procedureSerialInput()}{procedureSerialInput()}}
+{\footnotesize\ttfamily void procedure\+Serial\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Acquisition et vérification de la commande de contrôle selon le format A7\+B7B~\newline
+ Où ch\+: Le canal utilisé, soit A, B, C, D valeur\+: La valeur 16bit en hexadécimal majuscule souhaité. Exemple \+: 7FFF pour 10V retour\+: Une nouvelle ligne ou un retour de chariot. 
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_a4fc01d736fe50cf5b977f755b675f11d}\label{Arduino-EVAL-AD5764EB-Driver_8cc_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!setup@{setup}}
+\index{setup@{setup}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Configuration et initisalisation du protocole SPI. 
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_a646bb1e167af8d67929572b893d426d5}\label{Arduino-EVAL-AD5764EB-Driver_8cc_a646bb1e167af8d67929572b893d426d5}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!writeRegister@{writeRegister}}
+\index{writeRegister@{writeRegister}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{writeRegister()}{writeRegister()}}
+{\footnotesize\ttfamily void write\+Register (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{function,  }\item[{uint8\+\_\+t}]{addr,  }\item[{int16\+\_\+t}]{valeur\+Reg }\end{DoxyParamCaption})}
+
+
+
+Écriture des valeurs vers le CNA AD5764\+EB à l\textquotesingle{}aide du protocole SPI. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ out}}  & {\em function} & uint8\+\_\+t \\
+\hline
+\mbox{\texttt{ out}}  & {\em addr} & uint8\+\_\+t \\
+\hline
+\mbox{\texttt{ out}}  & {\em valeur\+Reg} & int16\+\_\+t \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des variables}
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_af2ea0b1efc6619c7bc1dbc1a9b051e3f}\label{Arduino-EVAL-AD5764EB-Driver_8cc_af2ea0b1efc6619c7bc1dbc1a9b051e3f}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!ALL\_DAC@{ALL\_DAC}}
+\index{ALL\_DAC@{ALL\_DAC}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{ALL\_DAC}{ALL\_DAC}}
+{\footnotesize\ttfamily const uint8\+\_\+t ALL\+\_\+\+DAC = 4}
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_aa052c61a7257911ae68659fd3c83d6f0}\label{Arduino-EVAL-AD5764EB-Driver_8cc_aa052c61a7257911ae68659fd3c83d6f0}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!BIN\_2COMP@{BIN\_2COMP}}
+\index{BIN\_2COMP@{BIN\_2COMP}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{BIN\_2COMP}{BIN\_2COMP}}
+{\footnotesize\ttfamily const int BIN\+\_\+2\+COMP = 6}
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_a1b393c1b2c27de5c000275b89dfb97f2}\label{Arduino-EVAL-AD5764EB-Driver_8cc_a1b393c1b2c27de5c000275b89dfb97f2}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!CLR\_PIN@{CLR\_PIN}}
+\index{CLR\_PIN@{CLR\_PIN}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{CLR\_PIN}{CLR\_PIN}}
+{\footnotesize\ttfamily const int CLR\+\_\+\+PIN = 8}
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_ab15f5331c99b4a7c633d51ad22a87a99}\label{Arduino-EVAL-AD5764EB-Driver_8cc_ab15f5331c99b4a7c633d51ad22a87a99}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!COARSE\_GAIN\_REG@{COARSE\_GAIN\_REG}}
+\index{COARSE\_GAIN\_REG@{COARSE\_GAIN\_REG}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{COARSE\_GAIN\_REG}{COARSE\_GAIN\_REG}}
+{\footnotesize\ttfamily const uint8\+\_\+t COARSE\+\_\+\+GAIN\+\_\+\+REG = 3}
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_a9d06665b33b53978aedd02ffb666368b}\label{Arduino-EVAL-AD5764EB-Driver_8cc_a9d06665b33b53978aedd02ffb666368b}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!DATA\_REG@{DATA\_REG}}
+\index{DATA\_REG@{DATA\_REG}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{DATA\_REG}{DATA\_REG}}
+{\footnotesize\ttfamily const uint8\+\_\+t DATA\+\_\+\+REG = 2}
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_a89c5037f32d46637e106aad3a923e7ec}\label{Arduino-EVAL-AD5764EB-Driver_8cc_a89c5037f32d46637e106aad3a923e7ec}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!FINE\_GAIN\_REG@{FINE\_GAIN\_REG}}
+\index{FINE\_GAIN\_REG@{FINE\_GAIN\_REG}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{FINE\_GAIN\_REG}{FINE\_GAIN\_REG}}
+{\footnotesize\ttfamily const uint8\+\_\+t FINE\+\_\+\+GAIN\+\_\+\+REG = 4}
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_ab98cb2d4a51014b599bfa57f5d25cfa1}\label{Arduino-EVAL-AD5764EB-Driver_8cc_ab98cb2d4a51014b599bfa57f5d25cfa1}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!FUNCTION\_REG@{FUNCTION\_REG}}
+\index{FUNCTION\_REG@{FUNCTION\_REG}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{FUNCTION\_REG}{FUNCTION\_REG}}
+{\footnotesize\ttfamily const uint8\+\_\+t FUNCTION\+\_\+\+REG = 0}
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_ad569f9ededde76d4c7e54a543ab38dea}\label{Arduino-EVAL-AD5764EB-Driver_8cc_ad569f9ededde76d4c7e54a543ab38dea}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!LDAC\_PIN@{LDAC\_PIN}}
+\index{LDAC\_PIN@{LDAC\_PIN}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{LDAC\_PIN}{LDAC\_PIN}}
+{\footnotesize\ttfamily const int LDAC\+\_\+\+PIN = 9}
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_aac832672eb333d928d7c27c47cb1442e}\label{Arduino-EVAL-AD5764EB-Driver_8cc_aac832672eb333d928d7c27c47cb1442e}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!OFFSET\_REG@{OFFSET\_REG}}
+\index{OFFSET\_REG@{OFFSET\_REG}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{OFFSET\_REG}{OFFSET\_REG}}
+{\footnotesize\ttfamily const uint8\+\_\+t OFFSET\+\_\+\+REG = 5}
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_afd1e0372deef146deab0c0567f04adaa}\label{Arduino-EVAL-AD5764EB-Driver_8cc_afd1e0372deef146deab0c0567f04adaa}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!RSTIN@{RSTIN}}
+\index{RSTIN@{RSTIN}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{RSTIN}{RSTIN}}
+{\footnotesize\ttfamily const int RSTIN = 7}
+
+\mbox{\Hypertarget{Arduino-EVAL-AD5764EB-Driver_8cc_a09899c75098708854f40a36d33d44bea}\label{Arduino-EVAL-AD5764EB-Driver_8cc_a09899c75098708854f40a36d33d44bea}} 
+\index{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}!SYNC\_PIN@{SYNC\_PIN}}
+\index{SYNC\_PIN@{SYNC\_PIN}!Arduino-\/EVAL-\/AD5764EB-\/Driver.cc@{Arduino-\/EVAL-\/AD5764EB-\/Driver.cc}}
+\doxysubsubsection{\texorpdfstring{SYNC\_PIN}{SYNC\_PIN}}
+{\footnotesize\ttfamily const int SYNC\+\_\+\+PIN = 10}
+
