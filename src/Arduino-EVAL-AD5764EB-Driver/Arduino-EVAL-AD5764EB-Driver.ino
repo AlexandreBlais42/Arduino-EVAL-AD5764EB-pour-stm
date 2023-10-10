@@ -10,11 +10,11 @@
 #include <SPI.h>
 #include <stdint.h>
 
-const int SYNC_PIN = 10;
-const int LDAC_PIN = 9;
-const int CLR_PIN = 8;
-const int RSTIN = 7;
-const int BIN_2COMP = 6;
+const uint8_t SYNC_PIN = 10;
+const uint8_t LDAC_PIN = 9;
+const uint8_t CLR_PIN = 8;
+const uint8_t RSTIN = 7;
+const uint8_t BIN_2COMP = 6;
 
 const uint8_t FUNCTION_REG = 0;
 const uint8_t DATA_REG = 2;
@@ -22,6 +22,9 @@ const uint8_t COARSE_GAIN_REG = 3;
 const uint8_t FINE_GAIN_REG = 4;
 const uint8_t OFFSET_REG = 5;
 const uint8_t ALL_DAC = 4;
+
+uint8_t channel = 0;        // Le numéro du channel à écrire le voltage
+int16_t voltage = 0   // La valeure du voltage à écrire sur 16 bits signés
 
 /** \brief Configuration et initisalisation du protocole SPI
  *
@@ -47,11 +50,38 @@ void setup() {
   initialisationCNA();
 }
 
-/** \brief Procède la fonction procedureSerialInput(); de manière continue
+/** \brief Lit constamment le port sériel en attente d'une 
+ * commande et l'écrit dans un registre du DAC quand elle est reçue
  *
  */
 void loop() {
-  procedureSerialInput();
+  if (Serial.available() >= 5) { // 5 charactères à cause du format : A1234 (5 octets)
+    channel = Serial.read() - 'A';
+
+    // Boucle déroulée pour avoir une vitesse d'éxécution maximale;
+    voltage += hexCharToInt(Serial.read());
+    voltage <<= 4;
+    voltage += hexCharToInt(Serial.read());
+    voltage <<= 4;
+    voltage += hexCharToInt(Serial.read());
+    voltage <<= 4;
+    voltage += hexCharToInt(Serial.read());
+
+    writeRegister(DATA_REG, channel, voltage); 
+
+    voltage = 0; // reset de la valeur pour la prochaine ittération
+  }
+}
+
+/** \brief Prend un charactère hexadécimal et retourne sa valeur
+ *  \param hexChar Le charatère hexadécimal ([0-9A-F])
+ *  \return La valeur décimale (entre 0 et 15)
+ */
+uint8_t hexCharToInt(const uint8_t hexChar){
+  if (hexChar >= '0' && hexChar <= '9'){
+    return hexChar - '0';
+  }
+  return hexChar - 'A' + 10;
 }
 
 /** \brief Configuration du CNA AD5764EB
@@ -61,62 +91,6 @@ void initialisationCNA() {
   writeRegister(FUNCTION_REG, 1, 0x00);
   writeRegister(COARSE_GAIN_REG, ALL_DAC, 0x00);
   writeRegister(OFFSET_REG, ALL_DAC, 0x00);
-}
-
-/** \brief Acquisition et vérification de la commande de contrôle selon le format A7B7B\n Où ch: Le canal utilisé, soit A, B, C, D valeur: La valeur 16bit en hexadécimal majuscule souhaité. Exemple : 7FFF pour 10V retour: Une nouvelle ligne ou un retour de chariot
- *
- */
-void procedureSerialInput() {
-  static String command;  // Déclaration de la variable command de manière statique pour que sa valeur persiste entre les itérations de la boucle
-
-  while (Serial.available()) {
-    char rx = Serial.read();
-
-    if (rx == '\r' || rx == '\n') {
-      if (command.length() != 0) {
-        command.trim();
-
-        Serial.println("---------------");
-        Serial.println(command);
-
-        procedureCommande(command);
-
-        // Accuser réception de la commande
-        Serial.println("Commande reçue: " + command);
-      }
-      command = "";  // Réinitialise la commande string lorsque le format de la commande est valide.
-    } else {
-      command.concat(rx);
-    }
-  }
-}
-
-/** \brief Traitement de la chaine de caractère command
-  *
-  * \param[in] command const String&   Pointeur sur la chaine de caractère command
-  *
-  */
-void procedureCommande(const String& command) {
-  char c = command.charAt(0);
-
-  Serial.print("c: ");
-  Serial.println(c);
-
-  if ((c >= 'a' && c <= 'd') || (c >= 'A' && c <= 'D') || (c >= '0' && c <= '3')) {
-    int canalValeur = (c >= 'a' && c <= 'd') ? (c - 'a') : ((c >= 'A' && c <= 'D') ? (c - 'A') : (c - '0'));
-
-    String valeur = command.substring(1, 5);
-    int16_t valeurdecimale = strtol(valeur.c_str(), NULL, 16);
-
-    Serial.print("valeur décimale: ");
-    Serial.println(valeurdecimale);
-
-    writeRegister(DATA_REG, canalValeur, valeurdecimale);
-
-  } else {
-    // Gère les mauvaises commandes
-    Serial.println("Commande invalide");
-  }
 }
 
 /** \brief Écriture des valeurs vers le CNA AD5764EB à l'aide du protocole SPI
@@ -132,7 +106,7 @@ void writeRegister(uint8_t function, uint8_t addr, int16_t valeurReg) {
 
   digitalWrite(SYNC_PIN, LOW);
   SPI.transfer((function << 3) | addr);
-  SPI.transfer((valeurReg >> 8) & 0xFF);
+  SPI.transfer((valeurReg >> 8));
   SPI.transfer(valeurReg & 0xFF);
   digitalWrite(SYNC_PIN, HIGH);
 }
