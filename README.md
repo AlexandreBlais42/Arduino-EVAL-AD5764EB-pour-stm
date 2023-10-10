@@ -7,24 +7,20 @@
 Pour l’utiliser, télécharger dans l’Arduino le programme sous le répertoire *embedded*. Par la suite, établir une connection sériel à 155200 baud. Pour commander une tension à l’une des sorties, transmettre la chaîne de caractères suivante:
 
 
-\<ch\>,\<valeur\>\<retour\>
+\<ch\>\<valeur (4 charactères hexadécimal)\>
 
 
 Où
 ch: Le canal utilisé, soit A, B, C, D
 valeur: La valeur 16bit en hexadécimal majuscule souhaité. Exemple : 7FFF pour 10V
-retour: Une nouvelle ligne ou un retour de chariot
 
 
 Exemple:
 
-A7B7B\n
-
-Où \n signifie une nouvelle ligne.
-
+A7B7B
 
 *Attention*:
-1- Il n’y a pas beaucoup de tests effectués sur la chaîne de caractères de telle sorte que l’utilisateur doit respecter le format de la commande.
+1- Le format de la commande est très stricte
 2- Il reste beaucoup d’options potentiels à implémenter pour utiliser l’ensemble des possibilités du AD5764.
 
 ## Configurations
