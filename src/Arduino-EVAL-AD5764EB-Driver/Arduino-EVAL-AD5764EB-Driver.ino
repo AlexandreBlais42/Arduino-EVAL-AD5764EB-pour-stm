@@ -24,7 +24,7 @@ const uint8_t OFFSET_REG = 5;
 const uint8_t ALL_DAC = 4;
 
 uint8_t channel = 0;        // Le numéro du channel à écrire le voltage
-int16_t voltage = 0   // La valeure du voltage à écrire sur 16 bits signés
+int16_t voltage = 0;   // La valeure du voltage à écrire sur 16 bits signés
 
 /** \brief Configuration et initisalisation du protocole SPI
  *
