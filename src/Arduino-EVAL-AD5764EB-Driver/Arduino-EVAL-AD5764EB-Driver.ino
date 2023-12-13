@@ -75,14 +75,7 @@ void procedureSerialInput() {
     if (rx == '\r' || rx == '\n') {
       if (command.length() != 0) {
         command.trim();
-
-        Serial.println("---------------");
-        Serial.println(command);
-
         procedureCommande(command);
-
-        // Accuser réception de la commande
-        Serial.println("Commande reçue: " + command);
       }
       command = "";  // Réinitialise la commande string lorsque le format de la commande est valide.
     } else {
@@ -98,24 +91,11 @@ void procedureSerialInput() {
   */
 void procedureCommande(const String& command) {
   char c = command.charAt(0);
-
-  Serial.print("c: ");
-  Serial.println(c);
-
   if ((c >= 'a' && c <= 'd') || (c >= 'A' && c <= 'D') || (c >= '0' && c <= '3')) {
     int canalValeur = (c >= 'a' && c <= 'd') ? (c - 'a') : ((c >= 'A' && c <= 'D') ? (c - 'A') : (c - '0'));
 
     String valeur = command.substring(1, 5);
     int16_t valeurdecimale = strtol(valeur.c_str(), NULL, 16);
-
-    Serial.print("valeur décimale: ");
-    Serial.println(valeurdecimale);
-
-    writeRegister(DATA_REG, canalValeur, valeurdecimale);
-
-  } else {
-    // Gère les mauvaises commandes
-    Serial.println("Commande invalide");
   }
 }
 
